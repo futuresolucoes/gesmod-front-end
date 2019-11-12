@@ -16,7 +16,7 @@ export const Content = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 15px;
 
     input {
       background: rgba(0, 0, 0, 0.2);
@@ -42,16 +42,16 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 50px;
-      background: #f94d6a;
+      background: #c6d200;
       border: 0;
       border-radius: 4px;
       font-size: 18px;
       font-weight: bold;
-      color: #ffffff;
+      color: #78378d;
       transition: background 0.3s;
 
       &:hover {
-        background: ${darken(0.06, '#f94d6a')};
+        background: ${darken(0.06, '#c6d200')};
       }
     }
 
