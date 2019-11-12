@@ -1,26 +1,37 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import logo from '~/assets/logo.svg';
 
 import { Container, Content, Profile } from './styles';
 
+import { signOut } from '~/store/modules/auth/actions';
+
+import { store } from '~/store';
+
 export default function Header() {
-  function handleSignOut() {}
+  const dispatch = useDispatch();
+
+  const name = store.getState().user.profile.first_name;
+
+  function handleSignOut() {
+    dispatch(signOut());
+  }
+
   return (
     <Container>
       <Content>
         <nav>
           <Link to="/dashboard">
-            <img
-              src="https://futuresolucoes.com.br/wp-content/uploads/2018/02/logo.png"
-              alt="Future Soluções"
-            />
+            <img src={logo} alt="Gesmod" />
           </Link>
         </nav>
         <aside>
           <Profile>
             <div>
-              <strong>Future</strong>
-              <Link to="/profile">Meu perfil</Link>
+              <strong>{name}</strong>
+              <Link to="/profile">Meus dados</Link>
             </div>
             <button type="button" onClick={handleSignOut}>
               Sair
