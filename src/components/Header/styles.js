@@ -11,20 +11,15 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  nav {
-    display: flex;
-    align-items: center;
-  }
 `;
 
 export const Profile = styled.div`
   display: flex;
   margin-left: 20px;
   padding-left: 20px;
+  align-items: baseline;
 
   strong {
-    display: block;
     font-size: 16px;
     color: #000;
     margin-right: 10px;
