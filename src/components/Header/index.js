@@ -20,7 +20,7 @@ export default function Header() {
         </nav>
         <aside>
           <Profile>
-            <strong>{`${profile.first_name} ${profile.last_name}`}</strong>
+            <strong>{`${profile.name}`}</strong>
             <div>
               <HeaderMenuToogle />
             </div>

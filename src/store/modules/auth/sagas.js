@@ -10,7 +10,7 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, 'sessions', { email, password });
+    const response = yield call(api.post, 'session', { email, password });
 
     console.tron.log(response.data);
 
