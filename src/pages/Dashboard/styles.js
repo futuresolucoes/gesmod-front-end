@@ -48,33 +48,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-export const Meetup = styled.li`
-  display: flex;
-  justify-content: space-between;
-  max-width: 940px;
-  height: 62px;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  margin-bottom: 10px;
-  transition: color 0.3s;
-
-  &:hover {
-    border: 3px solid #000;
-    color: #f94d6a;
-    cursor: pointer;
-  }
-
-  strong {
-    margin-left: 30px;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  span {
-    margin-right: 76px;
-    font-size: 16px;
-    opacity: 0.6;
-  }
-`;
