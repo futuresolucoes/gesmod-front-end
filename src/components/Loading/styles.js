@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const ScreenLoading = styled.div`
   display: flex;
   justify-content: center;
-  height: 500px;
+  height: ${props => `${props.height}px`};
   margin: 0 auto;
   align-items: center;
 
