@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, call, put, all, delay } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import history from '~/services/history';
@@ -10,9 +10,11 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
+    yield delay(500);
+
     const response = yield call(api.post, 'session', { email, password });
 
-    console.tron.log(response.data);
+    console.tron.log(response);
 
     const { token, user } = response.data;
 
@@ -24,26 +26,8 @@ export function* signIn({ payload }) {
   } catch (error) {
     console.tron.log(error);
     toast.error('Erro na autenticação');
-    yield put(signFailure);
-  }
-}
-
-export function* signUp({ payload }) {
-  try {
-    const { name, email, password, confirmPassword } = payload;
-
-    yield call(api.post, '/users', {
-      name,
-      email,
-      password,
-      confirmPassword,
-    });
-
-    toast.success('Usuário cadastrado com sucesso.');
-    history.push('/');
-  } catch (error) {
-    toast.error('Falha no cadastro, verifique seus dados!');
     yield put(signFailure());
+    history.push('/');
   }
 }
 
@@ -64,6 +48,5 @@ export function signOut() {
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
-  takeLatest('@auth/SIGN_UP_REQUEST', signUp),
   takeLatest('@auth/SIGN_OUT', signOut),
 ]);
